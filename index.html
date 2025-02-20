@@ -79,6 +79,107 @@
             </div>
             <!--Step 1 End-->
 
+            <!--Step 2 start-->
+            <div class="stp step-2">
+                <div class="header">
+                    <h1 class="title">Select Event/Sessions</h1>
+                    <p class="exp">Please select the event/sessions you would like to attend.</p> 
+                    <form>
+                        <div class="label">
+                            <label for="sessions">Select Sessions</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="keynote" name="sessions" value="keynote">
+                            <label for="keynote">Keynote</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="workshop" name="sessions" value="workshop">
+                            <label for="workshop">Workshop</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="networking" name="sessions" value="networking">
+                            <label for="networking">Networking Event</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="other" name="sessions" value="other">
+                            <label for="other">Other Sessions</label>
+                        </div>
+                        <div class="label"></div>
+                            <label for="date-time">Select Date and Time</label>
+                        </div>
+                        <input type="datetime-local" id="date-time" name="date-time">
+                        <div class="label">
+                            <label for="category">Select Category</label>
+                        </div>
+                        <select id="category" name="category"></select>
+                            <option value="business">Business</option>
+                            <option value="creative">Creative</option>
+                            <option value="technology">Technology</option>
+                        </select>
+                    </form>
+                    <div class="btn-container">
+                        <button class="prev-stp" type="button">Go Back</button>
+                        <button class="next-stp" type="submit">Next Step</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--Step 2 End-->
+
+            <!--Step 3 Start-->
+            <div class="stp step-3">
+                <div class="header">
+                    <h1 class="title">Special Requests or Preferences</h1>
+                    <p class="exp">Please let us know if you have any special requests or preferences.</p>
+                </div>
+                <form>
+                    <div class="label">
+                        <label for="dietary-restrictions">Dietary Restrictions</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="vegetarian" name="dietary-restrictions" value="vegetarian">
+                        <label for="vegetarian">Vegetarian</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="vegan" name="dietary-restrictions" value="vegan">
+                        <label for="vegan">Vegan</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="gluten-free" name="dietary-restrictions" value="gluten-free">
+                        <label for="gluten-free">Gluten-Free</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="none" name="dietary-restrictions" value="none">
+                        <label for="none">None</label>
+                    </div>
+                    <div class="label">
+                        <label for="accessibility-requirements">Accessibility Requirements</label>
+                    </div>
+                    <textarea id="accessibility-requirements" name="accessibility-requirements" placeholder="Enter your accessibility requirements"></textarea>
+                    <div class="label">
+                        <label for="other-special-request">Other Special Requests</label>
+                    </div>
+                    <textarea id="other-special-request" name="other-special-request" placeholder="Enter your special request"></textarea>
+                </form>
+                <div class="confirmation-message" style="display: none;">
+                    We’ll try our best to accommodate!
+                </div>
+                <div class="btn-container">
+                    <button class="prev-stp" type="button">Go Back</button>
+                    <button class="next-stp" type="submit" onclick="showConfirmationMessage()">Next Step</button>
+                </div>
+            </div>
+
+            <script>
+                function showConfirmationMessage() {
+                    const specialRequest = document.getElementById('special-request').value;
+                    if (specialRequest.trim() !== '') {
+                        document.querySelector('.confirmation-message').style.display = 'block';
+                    }
+                }
+            </script>
+            <!--Step 3 End-->
+
 
         </div>
     </div>
