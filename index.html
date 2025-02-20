@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event RSVP Form</title>
+</head>
+<body>
+    <div class = "form">
+        <div class="form-container">
+            <!--Sidebar start-->
+            <div class="form-sidebar">
+                <div class="step-active">
+                    <div class="circle">1</div>
+                    <div class=""step-content>
+                        <span>Step 1</span>
+                        <b>Guest Info</b>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle">2</div>
+                    <div class=""step-content>
+                        <span>Step 2</span>
+                        <b>Select Event/Sessions</b>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle">3</div>
+                    <div class=""step-content>
+                        <span>Step 3</span>
+                        <b>Special Request/Preference</b>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle">4</div>
+                    <div class=""step-content>
+                        <span>Step 4</span>
+                        <b>Review and Confirmation</b>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="circle">5</div>
+                    <div class=""step-content>
+                        <span>Step 5</span>
+                        <b>Payment Summary</b>
+                    </div>
+                </div>
+            </div>
+            <!--Sidebar end-->
+
+            <!--Step 1 Start-->
+            <div class="stp step-1">
+                <div class="header">
+                    <h1 class=""title">Guest Information</h1>
+                    <p class="exp">
+                        Please provide your information below.
+                    </p>
+                </div>
+                <form>
+                    <div class="label">
+                        <label for="name">Name</label>
+                        <p class="error">Please enter your name</p>
+                    </div>
+                    <input required type="text" id="name" name="name" placeholder="Enter your name">
+                    <div class="label">
+                        <label for="email">Email</label>
+                        <p class="error">Please enter your email</p>
+                    </div>
+                    <input required type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="label">
+                        <label for="phone">Phone</label>
+                        <p class="error">Please enter your phone number</p>
+                    </div>
+                    <input required type="tel" id="phone" name="phone" placeholder="Enter your phone number"> 
+                </form>
+                <div class="btn-container">
+                    <button class="next-stp" type="submit">Next Step</button>
+                </div>
+            </div>
+            <!--Step 1 End-->
+
+
+        </div>
+    </div>
+    
+</body>
+</html>
