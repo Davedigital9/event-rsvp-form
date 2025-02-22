@@ -86,33 +86,32 @@
                     <h1 class="title">Select Event/Sessions</h1>
                     <p class="exp">Please select the event/sessions you would like to attend.</p> 
                     <form>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="seminar" name="sessions" value="seminar">
+                                <label for="seminar">Seminar</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="workshop" name="sessions" value="workshop">
+                                <label for="workshop">Workshop</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="networking" name="sessions" value="networking">
+                                <label for="networking">Networking Event</label>
+                            </div>
+                        </div>
                         <div class="label">
-                            <label for="sessions">Select Sessions</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="keynote" name="sessions" value="keynote">
-                            <label for="keynote">Keynote</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="workshop" name="sessions" value="workshop">
-                            <label for="workshop">Workshop</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="networking" name="sessions" value="networking">
-                            <label for="networking">Networking Event</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="other" name="sessions" value="other">
-                            <label for="other">Other Sessions</label>
-                        </div>
-                        <div class="label"></div>
                             <label for="date-time">Select Date and Time</label>
                         </div>
-                        <input type="datetime-local" id="date-time" name="date-time">
+                        <select id="date-time" name="date-time">
+                            <option value="2025-03-01T10:00">March 1, 2025 - 10:00 AM</option>
+                            <option value="2025-03-02T14:00">March 2, 2025 - 2:00 PM</option>
+                            <option value="2025-03-03T09:00">March 3, 2025 - 9:00 AM</option>
+                        </select>
                         <div class="label">
                             <label for="category">Select Category</label>
                         </div>
-                        <select id="category" name="category"></select>
+                        <select id="category" name="category">
                             <option value="business">Business</option>
                             <option value="creative">Creative</option>
                             <option value="technology">Technology</option>
@@ -123,7 +122,6 @@
                         <button class="next-stp" type="submit">Next Step</button>
                     </div>
                 </div>
-            </div>
             </div>
             <!--Step 2 End-->
 
@@ -137,22 +135,26 @@
                     <div class="label">
                         <label for="dietary-restrictions">Dietary Restrictions</label>
                     </div>
-                    <div>
-                        <input type="checkbox" id="vegetarian" name="dietary-restrictions" value="vegetarian">
-                        <label for="vegetarian">Vegetarian</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vegetarian" name="dietary-restrictions" value="vegetarian">
+                            <label for="vegetarian">Vegetarian</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vegan" name="dietary-restrictions" value="vegan">
+                            <label for="vegan">Vegan</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="gluten-free" name="dietary-restrictions" value="gluten-free">
+                            <label for="gluten-free">Gluten-Free</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="none" name="dietary-restrictions" value="none">
+                            <label for="none">None</label>
+                        </div>
+
                     </div>
-                    <div>
-                        <input type="checkbox" id="vegan" name="dietary-restrictions" value="vegan">
-                        <label for="vegan">Vegan</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="gluten-free" name="dietary-restrictions" value="gluten-free">
-                        <label for="gluten-free">Gluten-Free</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="none" name="dietary-restrictions" value="none">
-                        <label for="none">None</label>
-                    </div>
+                    
                     <div class="label">
                         <label for="accessibility-requirements">Accessibility Requirements</label>
                     </div>
@@ -167,7 +169,7 @@
                 </div>
                 <div class="btn-container">
                     <button class="prev-stp" type="button">Go Back</button>
-                    <button class="next-stp" type="submit" onclick="showConfirmationMessage()">Next Step</button>
+                    <button class="next-stp" type="submit">Next Step</button>
                 </div>
             </div>
 
@@ -210,7 +212,6 @@
             <!--Step 4 End-->
 
             <!--Step 5 Start-->
-            <!--Step 5 Start-->
             <div class="stp step-5">
                 <div class="header">
                     <h1 class="title">Confirmation</h1>
@@ -225,6 +226,6 @@
 
         </div>
     </div>
-    
+    <script src="./test.js"></script>
 </body>
 </html>
