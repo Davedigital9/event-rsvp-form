@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event RSVP Form</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class = "form">
@@ -12,37 +13,37 @@
             <div class="form-sidebar">
                 <div class="step-active">
                     <div class="circle">1</div>
-                    <div class=""step-content>
+                    <div class="step-content">
                         <span>Step 1</span>
                         <b>Guest Info</b>
                     </div>
                 </div>
                 <div class="step">
                     <div class="circle">2</div>
-                    <div class=""step-content>
+                    <div class="step-content">
                         <span>Step 2</span>
-                        <b>Select Event/Sessions</b>
+                        <b>Select Sessions</b>
                     </div>
                 </div>
                 <div class="step">
                     <div class="circle">3</div>
-                    <div class=""step-content>
+                    <div class="step-content">
                         <span>Step 3</span>
-                        <b>Special Request/Preference</b>
+                        <b>Special Requests</b>
                     </div>
                 </div>
                 <div class="step">
                     <div class="circle">4</div>
-                    <div class=""step-content>
+                    <div class="step-content">
                         <span>Step 4</span>
-                        <b>Review and Confirmation</b>
+                        <b>Review Details</b>
                     </div>
                 </div>
                 <div class="step">
                     <div class="circle">5</div>
-                    <div class=""step-content>
+                    <div class="step-content">
                         <span>Step 5</span>
-                        <b>Payment Summary</b>
+                        <b>Confirmation</b>
                     </div>
                 </div>
             </div>
@@ -51,7 +52,7 @@
             <!--Step 1 Start-->
             <div class="stp step-1">
                 <div class="header">
-                    <h1 class=""title">Guest Information</h1>
+                    <h1 class="title">Guest Information</h1>
                     <p class="exp">
                         Please provide your information below.
                     </p>
@@ -170,15 +171,56 @@
                 </div>
             </div>
 
-            <script>
-                function showConfirmationMessage() {
-                    const specialRequest = document.getElementById('special-request').value;
-                    if (specialRequest.trim() !== '') {
-                        document.querySelector('.confirmation-message').style.display = 'block';
-                    }
-                }
-            </script>
             <!--Step 3 End-->
+
+            <!--Step 4 Start-->
+            <div class="stp step-4">
+                <div class="header">
+                    <h1 class="title">Review and Confirmation</h1>
+                    <p class="exp">Please review your information and selections below.</p>
+                </div>
+                <div class="review">
+                    <div class="label">
+                        <label for="name">Name</label>
+                    </div>
+                    <p id="review-name">John Doe</p>
+                    <div class="label">
+                        <label for="email">Email</label>
+                    </div>
+                    <p id="review-email">john.doe@example.com</p>
+                    <div class="label">
+                        <label for="phone">Phone</label>
+                    </div>
+                    <p id="review-phone">123-456-7890</p>
+                    <div class="label">
+                        <label for="sessions">Selected Sessions</label>
+                    </div>
+                    <p id="review-sessions">Keynote, Workshop</p>
+                    <div class="label">
+                        <label for="special-requests">Special Requests</label>
+                    </div>
+                    <p id="review-special-requests">Vegetarian, Wheelchair Access</p>
+                </div>
+                <div class="btn-container">
+                    <button class="prev-stp" type="button">Go Back</button>
+                    <button class="submit-rsvp" type="submit">Submit RSVP</button>
+                    <button class="print-confirmation" type="button" onclick="window.print()">Print Confirmation</button>
+                </div>
+            </div>
+            <!--Step 4 End-->
+
+            <!--Step 5 Start-->
+            <!--Step 5 Start-->
+            <div class="stp step-5">
+                <div class="header">
+                    <h1 class="title">Confirmation</h1>
+                    <p class="exp">Thank you for your RSVP! A confirmation and tickets will be emailed to you shortly.</p>
+                </div>
+                <div class="btn-container">
+                    <button class="print-confirmation" type="button" onclick="window.print()">Print Confirmation</button>
+                </div>
+            </div>
+            <!--Step 5 End-->
 
 
         </div>
