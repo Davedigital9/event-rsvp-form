@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.querySelectorAll(".next-stp");
     const prevBtn = document.querySelectorAll(".prev-stp");
     const formSidebarSteps = document.querySelectorAll(".step");
+
     let currentStep = 1;
     let currentCircle = 0;
 
@@ -31,6 +32,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function updateActiveCircle() {
+        circleSteps.forEach((step, index) => {
+            if (index === currentCircle) {
+                step.classList.add("step-active");
+                step.querySelector(".circle").classList.add("active");
+            } else {
+                step.classList.remove("step-active");
+                step.querySelector(".circle").classList.remove("active");
+            }
+        });
+    }
+
+    function collectFormData() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const sessions = Array.from(document.querySelectorAll("input[name='sessions']:checked")).map(el => el.nextElementSibling.textContent).join(", ");
+        const dateTime = document.getElementById("date-time").selectedOptions[0].textContent;
+        const category = document.getElementById("category").selectedOptions[0].textContent;
+        const dietaryRestrictions = Array.from(document.querySelectorAll("input[name='dietary-restrictions']:checked")).map(el => el.nextElementSibling.textContent).join(", ");
+        const accessibilityRequirements = document.getElementById("accessibility-requirements").value;
+        const otherSpecialRequest = document.getElementById("other-special-request").value;
+
+        document.getElementById("review-name").textContent = name;
+        document.getElementById("review-email").textContent = email;
+        document.getElementById("review-phone").textContent = phone;
+        document.getElementById("review-sessions").textContent = sessions;
+        document.getElementById("review-date-time").textContent = dateTime;
+        document.getElementById("review-category").textContent = category;
+        document.getElementById("review-dietary-restrictions").textContent = dietaryRestrictions;
+        document.getElementById("review-accessibility-requirements").textContent = accessibilityRequirements;
+        document.getElementById("review-other-special-request").textContent = otherSpecialRequest;
+    }
+
     steps.forEach((step) => {
         const nextBtn = step.querySelector(".next-stp");
         const prevBtn = step.querySelector(".prev-stp");
@@ -45,17 +80,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (newStepElement) {
                     newStepElement.style.display = "flex";
                 }
-                if (circleSteps[currentCircle]) {
-                    circleSteps[currentCircle].classList.remove("active");
+                if (currentCircle > 0) {
+                    currentCircle--;
                 }
-                currentCircle--;
-                if (circleSteps[currentCircle]) {
-                    circleSteps[currentCircle].classList.add("active");
-                }
+                updateActiveCircle();
             });
         }
         if (nextBtn) {
-            nextBtn.addEventListener("click", () => {
+            nextBtn.addEventListener("click", (event) => {
+                event.preventDefault();
                 if (validateForm()) {
                     const currentStepElement = document.querySelector(`.step-${currentStep}`);
                     if (currentStepElement) {
@@ -63,20 +96,41 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                     if (currentStep < 5) {
                         currentStep++;
-                        if (circleSteps[currentCircle]) {
-                            circleSteps[currentCircle].classList.remove("active");
+                        if (currentCircle < circleSteps.length - 1) {
+                            currentCircle++;
                         }
-                        currentCircle++;
-                        if (circleSteps[currentCircle]) {
-                            circleSteps[currentCircle].classList.add("active");
-                        }
+                        updateActiveCircle();
                     }
                     const newStepElement = document.querySelector(`.step-${currentStep}`);
                     if (newStepElement) {
                         newStepElement.style.display = "flex";
                     }
+                    if (currentStep === 4) {
+                        collectFormData();
+                    }
                 }
             });
         }
     });
+
+    function submitRSVP() {
+        const submitRSVP = document.querySelector(".submit-rsvp");
+        submitRSVP.addEventListener("click", (event) => {
+            event.preventDefault();
+            console.log("submitRSVP");
+            collectFormData();
+            const currentStepElement = document.querySelector(`.step-${currentStep}`);
+            if (currentStepElement) {
+                currentStepElement.style.display = "none";
+            }
+            currentStep++;
+            const newStepElement = document.querySelector(`.step-${currentStep}`);
+            if (newStepElement) {
+                newStepElement.style.display = "flex";
+            }
+        });
+    }
+    
+    updateActiveCircle();
+    submitRSVP();
 });

@@ -88,15 +88,15 @@
                     <form>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="seminar" name="sessions" value="seminar">
+                                <input type="radio" id="seminar" name="sessions" value="seminar">
                                 <label for="seminar">Seminar</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="workshop" name="sessions" value="workshop">
+                                <input type="radio" id="workshop" name="sessions" value="workshop">
                                 <label for="workshop">Workshop</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="networking" name="sessions" value="networking">
+                                <input type="radio" id="networking" name="sessions" value="networking">
                                 <label for="networking">Networking Event</label>
                             </div>
                         </div>
@@ -107,6 +107,7 @@
                             <option value="2025-03-01T10:00">March 1, 2025 - 10:00 AM</option>
                             <option value="2025-03-02T14:00">March 2, 2025 - 2:00 PM</option>
                             <option value="2025-03-03T09:00">March 3, 2025 - 9:00 AM</option>
+                            <option value="2025-03-04T11:00">March 4, 2025 - 11:00 AM</option>
                         </select>
                         <div class="label">
                             <label for="category">Select Category</label>
@@ -154,7 +155,7 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="label">
                         <label for="accessibility-requirements">Accessibility Requirements</label>
                     </div>
@@ -182,31 +183,66 @@
                     <p class="exp">Please review your information and selections below.</p>
                 </div>
                 <div class="review">
-                    <div class="label">
-                        <label for="name">Name</label>
+                    <div class="review-container">
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="name">Name</label>
+                            </div>
+                            <p id="review-name"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="email">Email</label>
+                            </div>
+                            <p id="review-email"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="phone">Phone</label>
+                            </div>
+                            <p id="review-phone"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="sessions">Selected Sessions</label>
+                            </div>
+                            <p id="review-sessions"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="date-time">Selected Date and Time</label>
+                            </div>
+                            <p id="review-date-time"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="category">Selected Category</label>
+                            </div>
+                            <p id="review-category"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="dietary-restrictions">Dietary Restrictions</label>
+                            </div>
+                            <p id="review-dietary-restrictions"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="accessibility-requirements">Accessibility Requirements</label>
+                            </div>
+                            <p id="review-accessibility-requirements"></p>
+                        </div>
+                        <div class="review-item">
+                            <div class="label">
+                                <label for="other-special-request">Other Special Requests</label>
+                            </div>
+                            <p id="review-other-special-request"></p>
+                        </div>
                     </div>
-                    <p id="review-name">John Doe</p>
-                    <div class="label">
-                        <label for="email">Email</label>
-                    </div>
-                    <p id="review-email">john.doe@example.com</p>
-                    <div class="label">
-                        <label for="phone">Phone</label>
-                    </div>
-                    <p id="review-phone">123-456-7890</p>
-                    <div class="label">
-                        <label for="sessions">Selected Sessions</label>
-                    </div>
-                    <p id="review-sessions">Keynote, Workshop</p>
-                    <div class="label">
-                        <label for="special-requests">Special Requests</label>
-                    </div>
-                    <p id="review-special-requests">Vegetarian, Wheelchair Access</p>
                 </div>
                 <div class="btn-container">
                     <button class="prev-stp" type="button">Go Back</button>
                     <button class="submit-rsvp" type="submit">Submit RSVP</button>
-                    <button class="print-confirmation" type="button" onclick="window.print()">Print Confirmation</button>
                 </div>
             </div>
             <!--Step 4 End-->
@@ -218,6 +254,7 @@
                     <p class="exp">Thank you for your RSVP! A confirmation and tickets will be emailed to you shortly.</p>
                 </div>
                 <div class="btn-container">
+                    <p class="exp">  Your RSVP has been received. We look forward to seeing you at the event!</p>
                     <button class="print-confirmation" type="button" onclick="window.print()">Print Confirmation</button>
                 </div>
             </div>
