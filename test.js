@@ -4,23 +4,70 @@ document.addEventListener("DOMContentLoaded", function () {
     const formInputs = document.querySelectorAll(".step-1 form input");
     const nextBtn = document.querySelectorAll(".next-stp");
     const prevBtn = document.querySelectorAll(".prev-stp");
-    const formSidebarSteps = document.querySelectorAll(".step");
+    const sessionRadios = document.querySelectorAll("input[name='sessions']");
+    const dietaryCheckboxes = document.querySelectorAll("input[name='dietary-restrictions']");
 
     let currentStep = 1;
     let currentCircle = 0;
 
+    //circleSteps[0].classList.add("active");
+    circleSteps[0].querySelector(".circle").classList.add("active");
+
     function validateForm() {
         let valid = true;
-        for (let i = 0; i < formInputs.length; i++) {
-            if (!formInputs[i].value) {
-                valid = false;
-                formInputs[i].classList.add("err");
-                findLabel(formInputs[i]).nextElementSibling.style.display = "flex";
-            } else {
-                formInputs[i].classList.remove("err");
-                findLabel(formInputs[i]).nextElementSibling.style.display = "none";
+
+        // Validate form inputs on step 1
+        if (currentStep === 1) {
+            for (let i = 0; i < formInputs.length; i++) {
+                if (!formInputs[i].value) {
+                    valid = false;
+                    formInputs[i].classList.add("err");
+                    findLabel(formInputs[i]).nextElementSibling.style.display = "flex";
+                    console.log(`Input validation failed for: ${formInputs[i].id}`);
+                } else {
+                    formInputs[i].classList.remove("err");
+                    findLabel(formInputs[i]).nextElementSibling.style.display = "none";
+                }
             }
         }
+
+        // Validate the session radio buttons on step 2
+        if (currentStep === 2) {
+            let sessionSelected = false;
+            for (let i = 0; i < sessionRadios.length; i++) {
+                if (sessionRadios[i].checked) {
+                    sessionSelected = true;
+                    break;
+                }
+            }
+            if (!sessionSelected) {
+                valid = false;
+                sessionRadios[0].closest(".checkbox-group").classList.add("err");
+                console.log("Session radio button validation failed");
+            } else {
+                sessionRadios[0].closest(".checkbox-group").classList.remove("err");
+            }
+        }
+
+        // Validate the dietary restriction checkboxes on step 3
+        if (currentStep === 3) {
+            let dietarySelected = false;
+            for (let i = 0; i < dietaryCheckboxes.length; i++) {
+                if (dietaryCheckboxes[i].checked) {
+                    dietarySelected = true;
+                    break;
+                }
+            }
+            if (!dietarySelected) {
+                valid = false;
+                dietaryCheckboxes[0].closest(".checkbox-group").classList.add("err");
+                console.log("Dietary restriction checkbox validation failed");
+            } else {
+                dietaryCheckboxes[0].closest(".checkbox-group").classList.remove("err");
+            }
+        }
+
+        console.log("Form validation result:", valid);
         return valid;
     }
 
@@ -89,7 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (nextBtn) {
             nextBtn.addEventListener("click", (event) => {
                 event.preventDefault();
+                console.log("Next button clicked");
                 if (validateForm()) {
+                    console.log("Form is valid");
                     const currentStepElement = document.querySelector(`.step-${currentStep}`);
                     if (currentStepElement) {
                         currentStepElement.style.display = "none";
@@ -108,6 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (currentStep === 4) {
                         collectFormData();
                     }
+                } else {
+                    console.log("Form validation failed");
                 }
             });
         }

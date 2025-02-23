@@ -110,7 +110,7 @@ img {
 }
   
 .stp {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
 }
